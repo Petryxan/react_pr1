@@ -1,12 +1,32 @@
-import React from 'react'
+import React from "react";
+import TodoItem from "./TodoItem";
+import PropTypes from "prop-types"
 
-export default function TodoList(){
-    return (
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-        </ul>
-    )
+const styles = {
+  ul: {
+    listStyle: "none",
+    margin: 0,
+    padding: 0
+  }
+};
+
+ function TodoList(props) {
+  return (
+    <ul style={styles.ul}>
+      {props.todos.map((todo, index) => {
+        return (
+        <TodoItem 
+        todo={todo} 
+        key={todo.id} 
+        index={index} 
+        onChan={props.onToggle}/>)
+      })}
+    </ul>
+  )
 }
+
+TodoList.propTypes = {
+    todos: PropTypes.arrayOf(PropTypes.object).isRequired,
+    onToggle: PropTypes.func.isRequired
+}
+export default TodoList
