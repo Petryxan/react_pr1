@@ -17,3 +17,14 @@ code {
   margin: 0 auto;
   width: 600px;
 }
+
+.rm {
+  background: red;
+  background-repeat: 50%;
+  color: #ffffff;
+  border: none;
+}
+
+.done {
+  text-decoration: line-through;
+}
